@@ -1,8 +1,10 @@
 const express = require("express");
-var app = express();
+const jobs = require('./job-details.json')
+const cors = require('cors')
+const app = express().use(cors());
 
 app.get("/jobs", (req, res, next) => {
-  res.json(["Software Developer","Senior Software Developer","Product Manager","Business Analyst","Engineering Manager"]);
+        res.status(200).json(jobs)
  });
 
 app.listen(3333, () => {

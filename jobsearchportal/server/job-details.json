@@ -1,0 +1,65 @@
+{
+  "jobs": [
+    {
+      "title": "Senior PHP Developer",
+      "location": "Indianopolis",
+      "country": "USA",
+      "experience": 5,
+      "payRate": 44,
+      "description": "Job Description",
+      "company": "Epic Coders",
+      "availability": "Hourly",
+      "replyRate": "82%",
+      "skills": "UI,UX,andorid",
+      "languages": "English",
+      "jobType": "Permenant"
+    }
+  ],
+  "filters": [
+
+    {
+      "title":"Skills",
+      "values":["UI"]
+    },
+    {
+      "title":"Job Type",
+      "values":[
+        "Permenant"
+      ]
+    },
+    {
+      "title":"Availability",
+      "values":[
+        "Hourly",
+        "Part-time",
+        "Full-time"
+      ]
+    },
+    {
+      "title":"Pay Rate",
+      "values":[
+        56
+      ]
+    },
+    {
+      "title":"Experience",
+      "values":[
+        1,2,3
+      ]
+    },
+    {
+      "title":"Countries",
+      "values":[
+        "India",
+        "America"
+      ]
+    },
+    {
+      "title":"Languages",
+      "values":[
+        "English",
+        "Hindi"
+      ]
+    }
+  ]
+}
