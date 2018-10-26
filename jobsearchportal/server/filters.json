@@ -1,0 +1,55 @@
+{
+  "filters": [
+    {
+      "title":"Skills",
+      "values":["UI"],
+      "type":"text"
+    },
+    {
+      "title":"Job Type",
+      "type":"dropdown",
+      "values":[
+        "Permenant"
+      ]
+    },
+    {
+      "title":"Availability",
+      "type":"checkbox",
+      "values":[
+        "Hourly",
+        "Part-time",
+        "Full-time"
+      ]
+    },
+    {
+      "title":"Pay Rate",
+      "type": "rangeslider",
+      "values":[
+        56
+      ]
+    },
+    {
+      "title":"Experience",
+      "type": "dropdown",
+      "values":[
+        1,2,3
+      ]
+    },
+    {
+      "title":"Countries",
+      "type": "text",
+      "values":[
+        "India",
+        "America"
+      ]
+    },
+    {
+      "title":"Languages",
+      "type": "text",
+      "values":[
+        "English",
+        "Hindi"
+      ]
+    }
+  ]
+}

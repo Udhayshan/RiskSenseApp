@@ -1,4 +1,11 @@
 import React from 'react';
+import { Card, Badge, Icon, Divider } from 'antd';
+
+const status={
+  "hourly":'#52c41a',
+  "part-time":'#f6c260',
+  "full-time":'#73d1fa'
+};
 
 export const Job = ({title,
                      location,
@@ -14,42 +21,22 @@ export const Job = ({title,
                      jobType
                     }) => (
   <div>
-    <div>
-      <span>Title:  </span><span>{title}</span>
-    </div>
-    <div>
-      <span>Description:  </span><span>{description}</span>
-    </div>
-    <div>
-      <span>Company:  </span><span>{company}</span>
-    </div>
-    <div>
-      <span>Experience:  </span><span>{experience}</span>
-    </div>
-    <div>
-      <span>Location:  </span><span>{location}</span>
-    </div>
-    <div>
-      <span>Country:  </span><span>{country}</span>
-    </div>
-    <div>
-      <span>Pay rate:  </span><span>${payRate}/hr</span>
-    </div>
-    <div>
-      <span>Availability:  </span><span>{availability}</span>
-    </div>
-    <div>
-      <span>Reply Rate:  </span><span>{replyRate}</span>
-    </div>
-    <div>
-      <span>Skills:  </span><span>{skills}</span>
-    </div>
-    <div>
-      <span>Languages:  </span><span>{languages}</span>
-    </div>
-    <div>
-      <span>Job Type:  </span><span>{jobType}</span>
-    </div>
+    <Card bordered={false}>
+      <div>
+        <strong>{title}</strong>
+          <Badge count={availability} style={{ backgroundColor: status[availability], marginLeft: '10px' }} />
+          <span style={{float:'right'}}>
+            <strong>${payRate} / hr</strong>
+          </span> 
+      </div>
+      <div><span style={{color: '#69a8f6'}}><Icon type="database" style={{paddingRight:'2px'}}/>{company} </span><Icon type="environment" style={{ color: '#7ad095' }} />{location}, {country}</div>
+      <div>Reply rate: <strong>{replyRate}</strong></div>
+      <p>{description}</p>
+      {
+        skills && skills.map((skill, i)=><Badge count={skill} style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }} />)
+      }
+      <Divider />
+    </Card>
   </div>
 )
 

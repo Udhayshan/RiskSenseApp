@@ -1,5 +1,18 @@
-.AppLayout {
-  padding-right: 100px;
+.content-layout {
   padding-left: 100px;
-  background-color: #f7f8f9;
+  padding-right: 100px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+.search-bar {
+  padding-top: 5px;
+  padding-bottom: 25px;
+}
+.job-list {
+  background-color: white;
+  padding: 30px !important;
+}
+
+.ant-badge-not-a-wrapper:not(.ant-badge-status) {
+  margin-right: 8px;
 }

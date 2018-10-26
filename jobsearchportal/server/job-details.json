@@ -6,60 +6,51 @@
       "country": "USA",
       "experience": 5,
       "payRate": 44,
-      "description": "Job Description",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
       "company": "Epic Coders",
-      "availability": "Hourly",
+      "availability": "hourly",
       "replyRate": "82%",
-      "skills": "UI,UX,andorid",
+      "skills": [
+        "UI",
+        "UX"
+      ],
       "languages": "English",
       "jobType": "Permenant"
-    }
-  ],
-  "filters": [
-
-    {
-      "title":"Skills",
-      "values":["UI"]
     },
     {
-      "title":"Job Type",
-      "values":[
-        "Permenant"
-      ]
+      "title": "Senior Java Developer",
+      "location": "San Francisco",
+      "country": "USA",
+      "experience": 6,
+      "payRate": 35,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      "company": "Epic Coders",
+      "availability": "part-time",
+      "replyRate": "80%",
+      "skills": [
+        "UI",
+        "UX",
+        "Android"
+      ],
+      "languages": "English",
+      "jobType": "Permenant"
     },
     {
-      "title":"Availability",
-      "values":[
-        "Hourly",
-        "Part-time",
-        "Full-time"
-      ]
-    },
-    {
-      "title":"Pay Rate",
-      "values":[
-        56
-      ]
-    },
-    {
-      "title":"Experience",
-      "values":[
-        1,2,3
-      ]
-    },
-    {
-      "title":"Countries",
-      "values":[
-        "India",
-        "America"
-      ]
-    },
-    {
-      "title":"Languages",
-      "values":[
-        "English",
-        "Hindi"
-      ]
+      "title": "Senior Javascript Developer",
+      "location": "Montreal",
+      "country": "Canada",
+      "experience": 5,
+      "payRate": 40,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      "company": "Epic Coders",
+      "availability": "full-time",
+      "replyRate": "65%",
+      "skills": [
+        "UI",
+        "UX"
+      ],
+      "languages": "English",
+      "jobType": "Permenant"
     }
   ]
 }
