@@ -69,7 +69,7 @@ export class JobList extends Component {
                                   {...job}
                                 />
         )}
-      <Pagination defaultCurrent={1} pageSize= {5} total={jobs.length} />
+      <Pagination defaultCurrent={1} pageSize= {5} total={jobs.length} style={{display: 'flex', justifyContent: 'center'}} />
     </Fragment>
     )
   }

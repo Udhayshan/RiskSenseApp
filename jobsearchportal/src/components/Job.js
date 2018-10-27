@@ -22,18 +22,20 @@ export const Job = ({title,
                     }) => (
   <div>
     <Card bordered={false}>
-      <div>
-        <strong>{title}</strong>
-          <Badge count={availability} style={{ backgroundColor: status[availability], marginLeft: '10px' }} />
-          <span style={{float:'right'}}>
-            <strong>${payRate} / hr</strong>
-          </span> 
+      <div style={{paddingBottom: '10px'}}>
+        <div>
+          <strong>{title}</strong>
+            <Badge count={availability} style={{ backgroundColor: status[availability], marginLeft: '10px' }} />
+            <span style={{float:'right'}}>
+              <strong>${payRate} / hr</strong>
+            </span> 
+        </div>
+        <div><span style={{color: '#69a8f6'}}><Icon type="database" style={{paddingRight:'2px'}}/>{company} </span><Icon type="environment" style={{ color: '#7ad095' }} />{location}, {country}</div>
+        <div>Reply rate: <strong>{replyRate}</strong></div>
       </div>
-      <div><span style={{color: '#69a8f6'}}><Icon type="database" style={{paddingRight:'2px'}}/>{company} </span><Icon type="environment" style={{ color: '#7ad095' }} />{location}, {country}</div>
-      <div>Reply rate: <strong>{replyRate}</strong></div>
       <p>{description}</p>
       {
-        skills && skills.map((skill, i)=><Badge count={skill} style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }} />)
+        skills && skills.map((skill, i)=><Badge key={i} count={skill} style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }} />)
       }
       <Divider />
     </Card>

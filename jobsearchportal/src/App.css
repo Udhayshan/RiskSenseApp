@@ -5,8 +5,8 @@
   margin-bottom: 50px;
 }
 .search-bar {
-  padding-top: 5px;
-  padding-bottom: 25px;
+  padding-top: 10px;
+  padding-bottom: 40px;
 }
 .job-list {
   background-color: white;
@@ -15,4 +15,16 @@
 
 .ant-badge-not-a-wrapper:not(.ant-badge-status) {
   margin-right: 8px;
+}
+
+.filter-list {
+  padding-right: 22px !important; 
+}
+
+.filter-row {
+  padding-top : 25px;
+}
+
+.filter-field {
+  padding-top : 10px;
 }
