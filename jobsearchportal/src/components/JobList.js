@@ -7,44 +7,15 @@ const Option = Select.Option;
 
 export class JobList extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      jobs: [],
-      sortby:'Relevance',
+      jobs: this.props.jobsList,
+      sortby:'Relevance', 
     }
   }
-
   handleChange=(value)=> {
     this.setState({sortby:value});
-  }
-
-  componentDidMount(){
-    fetch('http://localhost:3333/jobs')
-    .then(response=> { return response.json();
-    }).then(results => {
-      const jobs = results.jobs.map(job => {
-      return {
-        title: job.title,
-        location: job.location,
-        country: job.country,
-        experience: job.experience,
-        payRate: job.payRate,
-        description: job.description,
-        company: job.company,
-        availability: job.availability,
-        replyRate: job.replyRate,
-        skills: job.skills,
-        languages: job.languages,
-        jobType: job.jobType
-      }
-    })
-    const newState = Object.assign({}, this.state, {
-      jobs: jobs
-    });
-    this.setState(newState);
-  })
-    .catch(error => console.log(error));
   }
   render(){
     const {jobs,sortby}=this.state;

@@ -6,65 +6,37 @@ export class Filter extends Component {
   constructor(){
     super();
     this.state = {
-      filters: []
+      skills:[],
+      countries: [],
+      languages:[],
+      jobType: '',
+      payRate: '',
+      experienceLevel: '',
+      hourly: '',
+      partTime: '',
+      fullTime: ''
     }
   }
-  componentDidMount(){
-    fetch('http://localhost:3333/filters')
-    .then(response=> { return response.json();
-    }).then(results => {
-      const filters = results.filters.map(filter => {
-      return {
-        title: filter.title,
-        type: filter.type,
-        values: filter.values,
-      }
+
+  handleFilterChange = name => (value) => {
+    this.setState({[name]:value},()=>{
+      this.filterSearch();
     })
-    const newState = Object.assign({}, this.state, {
-      filters: filters
-    });
-    this.setState(newState);
-  })
-    .catch(error => console.log(error));
   }
 
-  handleSkillChange = (value) => {
-    console.log(`skill selected ${value}`);
+  handleCheckBoxChange = name => (e) => {
+    this.setState({[name]:e.target.checked},()=>{
+      this.filterSearch();
+    })
   }
 
-  handleAvailabilityChange = (e) => {
-
-  }
-  
-  handleProfileWithoutPayRateChange = (e) => {
-
-  }
-
-  handleJobTypeChange = (value) => {
-    console.log(`Job Type selected ${value}`);
-  }
-
-  handlePayRateChange = (value) => {
-    console.log(`Pay rate selected ${value}`);
-  }
-
-  handleExperienceChange = (value) => {
-    console.log(`Experience level selected ${value}`);
-  }
-
-  handleCountryChange = (value) => {
-    console.log(`Country selected ${value}`);
-  }
-
-  handleLanguageChange = (value) => {
-    console.log(`Language selected ${value}`);
+  filterSearch=()=>{
+    const params={...this.state};
+    this.props.filterSearch(params);
   }
 
   render() {
     const color = '#919eaf';
-    const skills = [];
-    const countries = [];
-    const languages = [];
     return (
       <Fragment>
         <Row>
@@ -77,20 +49,20 @@ export class Filter extends Component {
               mode="tags"
               style={{ width: '100%', marginTop:'10px' }}
               placeholder="Please enter a skill"
-              onChange={this.handleSkillChange}
+              onChange={this.handleFilterChange('skills')}
           >
-            {skills}
+            {[]}
           </Select>
         </Row>
         <Row className = "filter-row">
           <div className = "filter-field"><strong>Availability</strong><Icon type="info-circle" style={{paddingLeft:'4px'}}/><span style={{float: 'right', color: color}}>Clear</span></div>
-          <div className = "filter-field"><Checkbox onChange={this.handleAvailabilityChange}>Hourly</Checkbox></div>
-          <div className = "filter-field"><Checkbox onChange={this.handleAvailabilityChange}>Part-time (20 hrs/wk)</Checkbox></div>
-          <div className = "filter-field"><Checkbox onChange={this.handleAvailabilityChange}>Full-time (40 hrs/wk)</Checkbox></div>
+          <div className = "filter-field"><Checkbox onChange={this.handleCheckBoxChange('hourly')}>Hourly</Checkbox></div>
+          <div className = "filter-field"><Checkbox onChange={this.handleCheckBoxChange('partTime')}>Part-time (20 hrs/wk)</Checkbox></div>
+          <div className = "filter-field"><Checkbox onChange={this.handleCheckBoxChange('fullTime')}>Full-time (40 hrs/wk)</Checkbox></div>
         </Row>
         <Row className = "filter-row">
           <div className = "filter-field"><strong>Job type</strong><Icon type="info-circle" style={{paddingLeft:'4px'}}/><span style={{float: 'right', color: color}}>Clear</span></div>
-          <Select placeholder="Select a job type" style={{ width: '100%', marginTop:'10px' }} onChange={this.handleJobTypeChange}>
+          <Select placeholder="Select a job type" style={{ width: '100%', marginTop:'10px' }} onChange={this.handleFilterChange('jobType')}>
             <Option value="perm">Permenant</Option>
             <Option value="temp">Temporary</Option>
           </Select>
@@ -102,18 +74,18 @@ export class Filter extends Component {
             min={1} 
             max={40} 
             style={{ marginTop:'10px'}}
-            onChange={this.handlePayRateChange} 
+            onChange={this.handleFilterChange('payRate')} 
           />
           <p><span style={{float: 'left'}}>1</span><span style={{float: 'right'}}>40+</span></p>
           <div>
-            <Checkbox onChange={this.handleProfileWithoutPayRateChange}>
+            <Checkbox onChange={this.handleFilterChange}>
               Include profiles without pay rates
             </Checkbox>
           </div>
         </Row>
         <Row className = "filter-row">
           <div className = "filter-field"><strong>Experience level</strong><span style={{float: 'right', color: color}}>Clear</span></div>
-          <Select placeholder="Select your experience level" style={{ width: '100%', marginTop:'10px' }} onChange={this.handleExperienceChange}>
+          <Select placeholder="Select your experience level" style={{ width: '100%', marginTop:'10px' }} onChange={this.handleFilterChange('experienceLevel')}>
             <Option value="1-3">1-3 Yrs</Option>
             <Option value="3-5">3-5 Yrs</Option>
           </Select>
@@ -124,9 +96,9 @@ export class Filter extends Component {
               mode="tags"
               style={{ width: '100%', marginTop:'10px' }}
               placeholder="Enter state,province or country"
-              onChange={this.handleCountryChange}
+              onChange={this.handleFilterChange('countries')}
           >
-            {countries}
+            {[]}
           </Select>
         </Row>
         <Row className="filter-row">
@@ -135,9 +107,9 @@ export class Filter extends Component {
               mode="tags"
               style={{ width: '100%', marginTop:'10px' }}
               placeholder="Enter a language"
-              onChange={this.handleLanguageChange}
+              onChange={this.handleFilterChange('languages')}
           >
-            {languages}
+            {[]}
           </Select>
         </Row>
       </Fragment>
