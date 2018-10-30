@@ -53,7 +53,7 @@ export class MainContent extends Component{
     }
 
    // const skillsLocal = skills ? skills.split(',') : skills;
-    fetch('http://localhost:3333/jobs?search='+searchText+'&skills='+skills+'&countries='+countries+
+    fetch('/jobs?search='+searchText+'&skills='+skills+'&countries='+countries+
     '&languages='+languages+'&jobType='+jobType+'&payRate='+payRateMod+
     '&experienceLevel='+experienceLevel+'&availability='+availability)
     .then(response=> { 

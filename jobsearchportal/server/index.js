@@ -1,7 +1,8 @@
 const express = require("express");
 const jobs = require('./job-details.json')
+const path = require('path')
 const cors = require('cors')
-const app = express().use(cors());
+const app = express().use(cors(), express.static(path.join(__dirname, 'client/build')));
  
 const queryFunction = (list, search, key) => (search) ? list.filter(item => item[key].toLowerCase().includes(search.toLowerCase())) : list; 
 const filterArrValues = (list, filterSkills, key) => (filterSkills.length > 0) ? list.filter(item => {
