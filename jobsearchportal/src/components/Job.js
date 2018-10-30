@@ -25,10 +25,14 @@ export const Job = ({title,
       <div style={{paddingBottom: '10px'}}>
         <div>
           <strong>{title}</strong>
-            <Badge count={availability} style={{ backgroundColor: status[availability], marginLeft: '10px' }} />
-            <span style={{float:'right'}}>
-              <strong>${payRate} / hr</strong>
-            </span> 
+          {
+            availability && availability.map((value, i)=>{
+              return <Badge count={value} key={i} style={{ backgroundColor: status[value], marginLeft: '10px' }} />
+            })
+          }
+          <span style={{float:'right'}}>
+            <strong>${payRate} / hr</strong>
+          </span> 
         </div>
         <div><span style={{color: '#69a8f6'}}><Icon type="database" style={{paddingRight:'2px'}}/>{company} </span><Icon type="environment" style={{ color: '#7ad095' }} />{location}, {country}</div>
         <div>Reply rate: <strong>{replyRate}</strong></div>

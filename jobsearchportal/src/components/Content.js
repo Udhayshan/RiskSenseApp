@@ -11,30 +11,22 @@ export class MainContent extends Component{
   constructor() {
     super();
     this.state = {
-      searchText: 'all',
+      searchText: '',
       jobList: [],
       sortby:'Relevance', 
       showList:false,
+      skills:[],
+      countries: [],
+      languages:[],
+      jobType: '',
+      payRate: '',
+      experienceLevel: '',
+      availability: []
     }
   }
 
   componentDidMount(){
-    this.getJobList();
-  }
-
-  getJobList=()=>{
-    const search=this.state.searchText;
-    const value = (search) ? search : 'all';
-    fetch('http://localhost:3333/jobs/' + value)
-    .then(response=> { return response.json();
-    }).then(results => {
-    const newState = Object.assign({}, this.state, {
-      jobList: results,
-      showList:true,
-    });
-    this.setState(newState);
-  })
-    .catch(error => console.log(error));
+    this.filterSearch(this.state);
   }
 
   handleChange=(value)=> {
@@ -43,17 +35,31 @@ export class MainContent extends Component{
 
   searchText=(value)=>{
     this.setState({searchText:value,showList:false},()=>{
-      this.getJobList();
+      this.filterSearch(this.state);
     })
   }
 
   filterSearch =(value)=>{
-    console.log('testing...',value);
-    //TODO call filter api to filter the joblist
+    const { searchText } = this.state;
+    const { skills, languages, countries, availability, jobType, payRate, experienceLevel}
+            = {...value};
+    this.setState({showList:false}); 
+
+   // const skillsLocal = skills ? skills.split(',') : skills;
+    fetch('http://localhost:3333/jobs?search='+searchText+'&skills='+skills+'&countries='+countries+
+    '&languages='+languages+'&jobType='+jobType+'&payRate='+payRate+
+    '&experienceLevel='+experienceLevel+'&availability='+availability)
+    .then(response=> { 
+      return response.json();
+    }).then(results => {
+      this.setState({jobList: results,
+        showList:true,}); 
+  })
+    .catch(error => console.log(error));
   }
 
   render() {
-    const {searchText,jobList,showList} =this.state;
+    const {jobList,showList} =this.state;
     return(
       <Content className="content-layout">
         <div className="search-bar">
@@ -72,7 +78,7 @@ export class MainContent extends Component{
             <Col className="gutter-row job-list" span={14}>
               {
                 (showList && jobList.length) ? 
-                <JobList searchText = {searchText} jobsList={jobList}/>
+                <JobList jobsList={jobList}/>
                 : <strong>No results found for the search criteria</strong>
               }
             </Col>

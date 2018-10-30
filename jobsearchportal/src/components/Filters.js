@@ -12,9 +12,28 @@ export class Filter extends Component {
       jobType: '',
       payRate: '',
       experienceLevel: '',
-      hourly: '',
-      partTime: '',
-      fullTime: ''
+      availability: []
+    }
+  }
+
+  resetFilters = (key,val) => {
+    if(key==='all')
+    {
+      this.setState({
+        skills:[],
+        countries: [],
+        languages:[],
+        jobType: '',
+        payRate: '',
+        experienceLevel: '',
+        availability: []
+      },()=>{
+        this.filterSearch();
+      });
+    }else{
+     this.setState({[key]:val},()=>{
+      this.filterSearch();
+    });
     }
   }
 
@@ -25,9 +44,20 @@ export class Filter extends Component {
   }
 
   handleCheckBoxChange = name => (e) => {
-    this.setState({[name]:e.target.checked},()=>{
-      this.filterSearch();
-    })
+    if(e.target.checked){
+      this.setState({
+        availability: [...this.state.availability, name]
+      }, ()=>{
+        this.filterSearch();
+      })
+    }
+    else{
+      this.setState({
+        availability: this.state.availability.filter(x=> x!==name)
+      }, ()=>{
+        this.filterSearch();
+      })
+    }
   }
 
   filterSearch=()=>{
@@ -37,6 +67,7 @@ export class Filter extends Component {
 
   render() {
     const color = '#919eaf';
+    const { skills, languages, countries } = this.state;
     return (
       <Fragment>
         <Row>
@@ -51,18 +82,21 @@ export class Filter extends Component {
               placeholder="Please enter a skill"
               onChange={this.handleFilterChange('skills')}
           >
-            {[]}
+            {skills && skills.map((value, i)=>
+              <Option key={i}>{value}</Option>
+            )}
           </Select>
         </Row>
         <Row className = "filter-row">
-          <div className = "filter-field"><strong>Availability</strong><Icon type="info-circle" style={{paddingLeft:'4px'}}/><span style={{float: 'right', color: color}}>Clear</span></div>
-          <div className = "filter-field"><Checkbox onChange={this.handleCheckBoxChange('hourly')}>Hourly</Checkbox></div>
-          <div className = "filter-field"><Checkbox onChange={this.handleCheckBoxChange('partTime')}>Part-time (20 hrs/wk)</Checkbox></div>
-          <div className = "filter-field"><Checkbox onChange={this.handleCheckBoxChange('fullTime')}>Full-time (40 hrs/wk)</Checkbox></div>
+          <div className = "filter-field"><strong>Availability</strong><Icon type="info-circle" style={{paddingLeft:'4px'}}/><div onClick={(e)=>this.resetFilters('availability', [])} style={{float: 'right', color: color}}>Clear</div></div>
+          <div className = "filter-field"><Checkbox  onChange={this.handleCheckBoxChange('hourly')}>Hourly</Checkbox></div>
+          <div className = "filter-field"><Checkbox  onChange={this.handleCheckBoxChange('part-time')}>Part-time (20 hrs/wk)</Checkbox></div>
+          <div className = "filter-field"><Checkbox  onChange={this.handleCheckBoxChange('full-time')}>Full-time (40 hrs/wk)</Checkbox></div>
         </Row>
         <Row className = "filter-row">
           <div className = "filter-field"><strong>Job type</strong><Icon type="info-circle" style={{paddingLeft:'4px'}}/><span style={{float: 'right', color: color}}>Clear</span></div>
           <Select placeholder="Select a job type" style={{ width: '100%', marginTop:'10px' }} onChange={this.handleFilterChange('jobType')}>
+            <Option value="">Select a job type</Option>
             <Option value="perm">Permenant</Option>
             <Option value="temp">Temporary</Option>
           </Select>
@@ -72,7 +106,7 @@ export class Filter extends Component {
           <Slider 
             range step={1} 
             min={1} 
-            max={40} 
+            max={100} 
             style={{ marginTop:'10px'}}
             onChange={this.handleFilterChange('payRate')} 
           />
@@ -98,7 +132,9 @@ export class Filter extends Component {
               placeholder="Enter state,province or country"
               onChange={this.handleFilterChange('countries')}
           >
-            {[]}
+          {countries && countries.map((value, i)=>
+            <Option key={i}>{value}</Option>
+          )}
           </Select>
         </Row>
         <Row className="filter-row">
@@ -109,7 +145,9 @@ export class Filter extends Component {
               placeholder="Enter a language"
               onChange={this.handleFilterChange('languages')}
           >
-            {[]}
+          {languages && languages.map((value, i)=>
+            <Option key={i}>{value}</Option>
+          )}
           </Select>
         </Row>
       </Fragment>

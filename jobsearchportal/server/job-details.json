@@ -3,53 +3,53 @@
     {
       "title": "Senior PHP Developer",
       "location": "Indianopolis",
-      "country": "USA",
+      "countries": ["USA"],
       "experience": 5,
       "payRate": 44,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
       "company": "Epic Coders",
-      "availability": "hourly",
+      "availability": ["hourly", "part-time"],
       "replyRate": "82%",
       "skills": [
         "UI",
         "UX"
       ],
-      "languages": "English",
-      "jobType": "Permenant"
+      "languages": ["English","Urdu"],
+      "jobType": "Temporary"
     },
     {
       "title": "Senior Java Developer",
       "location": "San Francisco",
-      "country": "USA",
-      "experience": 6,
+      "countries": ["USA","Canada"],
+      "experience": 2,
       "payRate": 35,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
       "company": "Epic Coders",
-      "availability": "part-time",
+      "availability": ["full-time"],
       "replyRate": "80%",
       "skills": [
         "UI",
         "UX",
         "Android"
       ],
-      "languages": "English",
+      "languages": ["English","Hindi"],
       "jobType": "Permenant"
     },
     {
       "title": "Senior Javascript Developer",
       "location": "Montreal",
-      "country": "Canada",
+      "countries": ["Africa","Canada"],
       "experience": 5,
       "payRate": 40,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
       "company": "Epic Coders",
-      "availability": "full-time",
+      "availability": ["full-time", "part-time"],
       "replyRate": "65%",
       "skills": [
         "UI",
         "UX"
       ],
-      "languages": "English",
+      "languages": ["English","Tamil"],
       "jobType": "Permenant"
     }
   ]
