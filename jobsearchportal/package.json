@@ -25,7 +25,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "antd": "^3.10.2"
+    "antd": "^3.10.2",
+    "express": "^4.16.4"
   },
   "proxy": "http://localhost:3333"
 }
