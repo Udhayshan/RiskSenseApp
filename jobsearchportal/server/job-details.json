@@ -11,34 +11,35 @@
       "availability": ["hourly", "part-time"],
       "replyRate": "82%",
       "skills": [
-        "UI",
-        "UX"
+        "PHP",
+        "Symphony",
+        "Mysql"
       ],
       "languages": ["English","Urdu"],
       "jobType": "Temporary"
     },
     {
       "title": "Senior Java Developer",
-      "location": "San Francisco",
-      "countries": ["USA","Canada"],
-      "experience": 2,
+      "location": "Montreal",
+      "countries": ["Canada"],
+      "experience": 4,
       "payRate": 35,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
       "company": "Epic Coders",
       "availability": ["full-time"],
       "replyRate": "80%",
       "skills": [
-        "UI",
-        "UX",
-        "Android"
+        "Java",
+        "J2EE",
+        "Spring"
       ],
       "languages": ["English","Hindi"],
       "jobType": "Permenant"
     },
     {
       "title": "Senior Javascript Developer",
-      "location": "Montreal",
-      "countries": ["Africa","Canada"],
+      "location": "Ghana",
+      "countries": ["Africa"],
       "experience": 5,
       "payRate": 40,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
@@ -46,11 +47,64 @@
       "availability": ["full-time", "part-time"],
       "replyRate": "65%",
       "skills": [
-        "UI",
-        "UX"
+        "React",
+        "Redux",
+        "UI"
       ],
       "languages": ["English","Tamil"],
       "jobType": "Permenant"
+    },
+    {
+      "title": "UX Designer",
+      "location": "Madrid",
+      "countries": ["Spain"],
+      "experience": 1,
+      "payRate": 23,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      "company": "Epic Coders",
+      "availability": ["part-time"],
+      "replyRate": "82%",
+      "skills": [
+        "UI",
+        "UX"
+      ],
+      "languages": ["English","Spanish"],
+      "jobType": "Temporary"
+    },
+    {
+      "title": "Senior Python Developer",
+      "location": "Haifa",
+      "countries": ["Israel"],
+      "experience": 3,
+      "payRate": 40,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      "company": "Epic Coders",
+      "availability": ["full-time"],
+      "replyRate": "80%",
+      "skills": [
+        "Python",
+        "AI",
+        "ML"
+      ],
+      "languages": ["English","German"],
+      "jobType": "Permenant"
+    },
+    {
+      "title": "Senior Ruby Developer",
+      "location": "Rome",
+      "countries": ["Italy"],
+      "experience": 4,
+      "payRate": 40,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+      "company": "Epic Coders",
+      "availability": ["hourly"],
+      "replyRate": "65%",
+      "skills": [
+        "Ruby",
+        "Rails"
+      ],
+      "languages": ["English","Telugu"],
+      "jobType": "Temporary"
     }
   ]
 }

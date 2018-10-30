@@ -6,8 +6,8 @@ const app = express().use(cors());
 const queryFunction = (list, search, key) => (search) ? list.filter(item => item[key].toLowerCase().includes(search.toLowerCase())) : list; 
 const filterArrValues = (list, filterSkills, key) => (filterSkills.length > 0) ? list.filter(item => {
  let checkVal=false;
-  item[key].map(currentValue => {
-     const result = filterSkills.includes(currentValue)
+ filterSkills.map(currentValue => {
+     const result = item[key].includes(currentValue)
      if(result===true && checkVal===false){
       checkVal=result; 
      } 

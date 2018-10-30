@@ -19,7 +19,7 @@ export class MainContent extends Component{
       countries: [],
       languages:[],
       jobType: '',
-      payRate: '',
+      payRate: [1,1],
       experienceLevel: '',
       availability: []
     }
@@ -40,14 +40,21 @@ export class MainContent extends Component{
   }
 
   filterSearch =(value)=>{
+    let payRateMod;
     const { searchText } = this.state;
     const { skills, languages, countries, availability, jobType, payRate, experienceLevel}
             = {...value};
     this.setState({showList:false}); 
 
+    if(payRate[0] === 1 && payRate[1] === 1){
+      payRateMod = '';
+    }else{
+      payRateMod = payRate;
+    }
+
    // const skillsLocal = skills ? skills.split(',') : skills;
     fetch('http://localhost:3333/jobs?search='+searchText+'&skills='+skills+'&countries='+countries+
-    '&languages='+languages+'&jobType='+jobType+'&payRate='+payRate+
+    '&languages='+languages+'&jobType='+jobType+'&payRate='+payRateMod+
     '&experienceLevel='+experienceLevel+'&availability='+availability)
     .then(response=> { 
       return response.json();

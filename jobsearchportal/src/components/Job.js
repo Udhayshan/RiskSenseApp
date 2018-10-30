@@ -9,7 +9,7 @@ const status={
 
 export const Job = ({title,
                      location,
-                     country,
+                     countries,
                      experience,
                      payRate,
                      description,
@@ -34,7 +34,7 @@ export const Job = ({title,
             <strong>${payRate} / hr</strong>
           </span> 
         </div>
-        <div><span style={{color: '#69a8f6'}}><Icon type="database" style={{paddingRight:'2px'}}/>{company} </span><Icon type="environment" style={{ color: '#7ad095' }} />{location}, {country}</div>
+        <div><span style={{color: '#69a8f6'}}><Icon type="database" style={{paddingRight:'2px'}}/>{company} </span><Icon type="environment" style={{ color: '#7ad095' }} />{location}, {countries[0]}</div>
         <div>Reply rate: <strong>{replyRate}</strong></div>
       </div>
       <p>{description}</p>
